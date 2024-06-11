@@ -190,19 +190,32 @@ function buyWeapon() {
   button2.onclick = sellWeapon
 }
 
+// function sellWeapon() {
+//   if (inventory.length > 1){
+//     gold += 15;
+//     goldText.innerText = gold;
+//     let currentWeapon =  inventory.shift();
+//     text.innerText = "You sold a " +currentWeapon+ ".";
+//     text.innerText += " In your inventory you have: " + inventory;
+//  }
+//  else {
+//   if (inventory.length = 1){
+//     text.innerText = "Don't sell your only weapon!"
+//   }
+//  }
+// }
 function sellWeapon() {
-  if (inventory.length > 1){
-    gold += 15;
-    goldText.innerText = gold;
-    let currentWeapon =  inventory.shift();
-    text.innerText = "You sold a " +currentWeapon+ ".";
-    text.innerText += " In your inventory you have: " + inventory;
- }
- else {
-  if (inventory.length = 1){
-    text.innerText = "Don't sell your only weapon!"
+  if (inventory.length > 1) {
+      gold += 15;
+      goldText.innerText = gold;
+      let currentWeapon = inventory.shift();
+      text.innerText = "You sold a " + currentWeapon + ".";
+      text.innerText += " In your inventory you have: " + inventory;
+  } else {
+      if (inventory.length === 1) { // Corrected comparison operator
+          text.innerText = "Don't sell your only weapon!";
+      }
   }
- }
 }
 
 function update(location){
@@ -217,33 +230,62 @@ function update(location){
 
 }
 
+// function attack() {
+//     text.innerText = "The " + monsters[fighting].name + " attacks."
+//     text.innerText += " You attack it with your " +weapons[currentWeapon].name+ ".";
+//     health -= getMonsterAttackValue(monsters[fighting].level);
+//     if (isMonsterHit()){
+//       monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
+//     }
+//     else {
+//       text.innerText += " You miss.";
+//      }
+//     healthText.innerText = health
+//     monsterHealthText.innerText = monsterHealth
+//     if (health <= 0) {
+//       lose(); // Call the lose function
+//     } else if (monsterHealth <= 0) {
+//       if (fighting === 2){
+//         winGame();
+//       }
+//       else {
+//         defeatMonster();
+//       }
+//     }
+//     if (Math.random() <= .1 && inventory.length !== 1){
+//       text.innerText += " Your " +inventory.pop()+" breaks."
+//       currentWeaponIndex--;
+//     }
+//   }
 function attack() {
-    text.innerText = "The " + monsters[fighting].name + " attacks."
-    text.innerText += " You attack it with your " +weapons[currentWeapon].name+ ".";
-    health -= getMonsterAttackValue(monsters[fighting].level);
-    if (isMonsterHit()){
-      monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
-    }
-    else {
+  text.innerText = "The " + monsters[fighting].name + " attacks.";
+  text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
+  health -= getMonsterAttackValue(monsters[fighting].level);
+  if (isMonsterHit()) {
+      monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+  } else {
       text.innerText += " You miss.";
-     }
-    healthText.innerText = health
-    monsterHealthText.innerText = monsterHealth
-    if (health <= 0) {
-      lose(); // Call the lose function
-    } else if (monsterHealth <= 0) {
-      if (fighting === 2){
-        winGame();
-      }
-      else {
-        defeatMonster();
-      }
-    }
-    if (Math.random() <= .1 && inventory.length !== 1){
-      text.innerText += " Your " +inventory.pop()+" breaks."
-      currentWeaponIndex--;
-    }
   }
+  healthText.innerText = health;
+  monsterHealthText.innerText = monsterHealth;
+  if (health <= 0) {
+      lose();
+  } else if (monsterHealth <= 0) {
+      if (fighting === 2) {
+          winGame();
+      } else {
+          defeatMonster();
+      }
+  }
+  if (Math.random() <= 0.1 && inventory.length !== 1) {
+      text.innerText += " Your " + inventory.pop() + " breaks.";
+      currentWeapon--;
+  }
+}
+
+function isMonsterHit() {
+  return Math.random() > 0.2 || health < 20;
+}
 
   function getMonsterAttackValue(level){
 const hit = (level *5) - (Math.floor(Math.random() * xp));
@@ -251,9 +293,6 @@ console.log(hit);
 return hit > 0 ? hit : 0;
   }
 
-  function isMonsterHit(){
-    return Math.random() > .2 || health < 20;
-  }
 
 function dodge() {
  text.innerText = "You dodge the attack from the " + monsters[fighting].name
