@@ -1,0 +1,22 @@
+body {
+    background-color: beige;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.umemcimadooutro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 100px; /* Largura fixa para os labels */
+    margin-right: 10px;
+    text-align: right; /* Alinha o texto à direita */
+}
+
+header main {
+    align-items: center;
+}
+
