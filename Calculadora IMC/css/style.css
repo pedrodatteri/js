@@ -1,22 +1,108 @@
 body {
-    background-color: beige;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #f5f5f5; /* Cor de fundo suave */
+    font-family: 'Arial', sans-serif; /* Fonte moderna e limpa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px; /* Largura fixa para um layout mais consistente */
+    padding: 20px; /* Padding para espaçamento interno */
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #ddd; /* Cor de borda suave */
+    background-color: #e0f7fa; /* Cor de fundo agradável */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 10px 0;
+    color: #00796b; /* Cor do texto */
+    background-color: #b2dfdb; /* Cor de fundo */
+    border-radius: 5px;
+    width: 100%; /* Ocupa toda a largura do container */
+}
+
+.resultado {
+    width: 100px; /* Quadrado */
+    height: 100px;
+    margin: 20px 0; /* Margem vertical */
+    padding: 10px;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+    background-color: #e0f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00796b; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+}
+
+main.calculadora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ocupa toda a largura do container */
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 .umemcimadooutro {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Espaçamento entre os campos */
 }
 
 label {
     width: 100px; /* Largura fixa para os labels */
     margin-right: 10px;
     text-align: right; /* Alinha o texto à direita */
+    color: #00796b; /* Cor do texto */
 }
 
-header main {
-    align-items: center;
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 130px); /* Compensar o padding e a borda, considerando a largura do label e a margem */
+    box-sizing: border-box; /* Inclui o padding e a borda no tamanho total */
 }
 
+.botao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button.calcular {
+    padding: 10px 20px;
+    background-color: #00796b; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transição suave para hover */
+}
+
+button.calcular:hover {
+    background-color: #004d40; /* Cor de fundo do botão ao passar o mouse */
+}
