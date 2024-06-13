@@ -37,8 +37,8 @@ h1 {
     width: 100%; /* Ocupa toda a largura do container */
 }
 
-.resultado {
-    width: 100px; /* Quadrado */
+#resultado {
+    width:200px; /* Quadrado */
     height: 100px;
     margin: 20px 0; /* Margem vertical */
     padding: 10px;
@@ -93,7 +93,7 @@ input {
     width: 100%;
 }
 
-button.calcular {
+button#calcular {
     padding: 10px 20px;
     background-color: #00796b; /* Cor de fundo do botão */
     color: #fff; /* Cor do texto do botão */
